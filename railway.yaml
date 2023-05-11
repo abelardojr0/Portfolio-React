@@ -1,0 +1,16 @@
+name: portfolio
+env: python
+build:
+  env: production
+  scripts:
+    - pip install -r requirements.txt
+run:
+  services:
+    - name: web
+      command: python app.py
+      env:
+        - DATABASE_URL: postgresql://postgres:rlwFg1MLBAmn8ffcGNMi@containers-us-west-172.railway.app:5529/railway
+  envs:
+    - name: DATABASE_URL
+      value: postgresql://postgres:rlwFg1MLBAmn8ffcGNMi@containers-us-west-172.railway.app:5529/railway
+version: 2
