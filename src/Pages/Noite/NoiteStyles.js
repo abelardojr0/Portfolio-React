@@ -198,23 +198,12 @@ export const NoiteEstrelas = styled.div`
   animation: anim-stars 60s linear infinite;
 `;
 export const NoiteEstrelasMenores = styled.div`
-  /* @keyframes anim-stars {
+  @keyframes anim-stars {
     from {
       transform: translateY(0px);
     }
     to {
       transform: translateY(-150px);
-    }
-  } */
-  @keyframes blink-animation {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
   position: relative;
@@ -250,8 +239,7 @@ export const NoiteEstrelasMenores = styled.div`
     calc(45vw - 40px) calc(70vh - 20px) white,
     calc(45vw - 40px) calc(30vh - 20px) white;
 
-  /* animation: anim-stars 60s linear infinite; */
-  animation: blink-animation 1s infinite;
+  animation: anim-stars 60s linear infinite;
   &::after {
     content: " ";
     position: absolute;

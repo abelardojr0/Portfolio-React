@@ -14,6 +14,8 @@ import nuvem2 from "../../Image/adereços/nuvem2.png";
 import lua from "../../Image/adereços/lua.png";
 import estrelas from "../../Image/adereços/estrelas.png";
 import estrelinhas from "../../Image/adereços/estrelinhas.png";
+import MenuHamburguer from "./MenuHamburguer";
+import Toggle from "../Toggle/Toggle";
 const Header = () => {
   const [navePos, setNavePos] = React.useState({ top: 0, left: 0 });
   const [modo, setModo] = React.useState();
@@ -47,6 +49,12 @@ const Header = () => {
       left: firstLiRect.left + firstLiRect.width / 2,
     });
     setAtual(localStorage.getItem("header"));
+    const selecionado = document.querySelector(
+      `[href="${localStorage.getItem("header")}"]`
+    );
+    if (selecionado) {
+      selecionado.classList.add("ativo");
+    }
   }, []);
 
   React.useEffect(() => {
@@ -94,50 +102,85 @@ const Header = () => {
     }
     document.addEventListener("scroll", scrollando);
   }, []);
+  const [menuMobile, setMenuMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.innerWidth < 768) {
+      setMenuMobile(true);
+    }
+  }, []);
 
   return (
     <>
       {mostrarMenu && (
-        <HeaderComponent className={modo}>
-          <HeaderLua src={astro} alt="astro" />
-          <HeaderEstrelas src={detalhe1} alt="detalhe1" />
-          <HeaderEstrelinhas src={detalhe2} alt="detalhe2" />
-          <HeaderLista className="Header">
-            <li>
-              <a
-                className="menu-nav"
-                ref={firstLiRef}
-                onClick={handleLiClick}
-                href="#inicio"
-              >
-                Início
-              </a>
-            </li>
-            <li>
-              <a className="menu-nav" onClick={handleLiClick} href="#sobre">
-                Sobre
-              </a>
-            </li>
-            <li>
-              <a className="menu-nav" onClick={handleLiClick} href="#portfolio">
-                Portfólio
-              </a>
-            </li>
-            <li>
-              <a className="menu-nav" onClick={handleLiClick} href="#skills">
-                Skills
-              </a>
-            </li>
-            <li>
-              <a className="menu-nav" onClick={handleLiClick} href="#contato">
-                Contato
-              </a>
-            </li>
-            <HeaderNave style={navePos}>
-              <HeaderNaveLuz />
-            </HeaderNave>
-          </HeaderLista>
-        </HeaderComponent>
+        <>
+          <HeaderComponent className={modo}>
+            <HeaderLua src={astro} alt="astro" />
+            <HeaderEstrelas src={detalhe1} alt="detalhe1" />
+            <HeaderEstrelinhas src={detalhe2} alt="detalhe2" />
+            {menuMobile ? (
+              <MenuHamburguer />
+            ) : (
+              <HeaderLista className="Header">
+                <li>
+                  <a
+                    className="menu-nav"
+                    ref={firstLiRef}
+                    onClick={handleLiClick}
+                    href="#inicio"
+                  >
+                    Início
+                  </a>
+                </li>
+                <li>
+                  <a className="menu-nav" onClick={handleLiClick} href="#sobre">
+                    Sobre
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="menu-nav"
+                    onClick={handleLiClick}
+                    href="#resumo"
+                  >
+                    Resumo
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="menu-nav"
+                    onClick={handleLiClick}
+                    href="#portfolio"
+                  >
+                    Portfólio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="menu-nav"
+                    onClick={handleLiClick}
+                    href="#skills"
+                  >
+                    Skills
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="menu-nav"
+                    onClick={handleLiClick}
+                    href="#contato"
+                  >
+                    Contato
+                  </a>
+                </li>
+                <HeaderNave style={navePos}>
+                  <HeaderNaveLuz />
+                </HeaderNave>
+              </HeaderLista>
+            )}
+            <Toggle />
+          </HeaderComponent>
+        </>
       )}
     </>
   );

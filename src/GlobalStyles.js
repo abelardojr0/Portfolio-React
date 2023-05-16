@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import responsivo, { breakpoints } from "./Responsivo";
 
 export const GlobalStyles = createGlobalStyle`
 body{
@@ -15,14 +16,24 @@ export const TituloGeral = styled.h1`
   text-align: center;
   font-weight: bold;
   width: 100%;
-  color: white;
+  color: rgb(237, 218, 13);
   font-family: "Chivo Mono", monospace;
   &.dia {
-    color: black;
+    color: rgb(237, 28, 9);
+  }
+  ${responsivo(breakpoints.desktop)} {
+    font-size: 3.5rem;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    font-size: 3rem;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    font-size: 2.5rem;
   }
 `;
+
 export const Divisoria = styled.span`
-  z-index: 2;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 3px;
@@ -38,6 +49,7 @@ export const Divisoria = styled.span`
     width: 100%;
     height: 5px;
     border-radius: 0px 60px 60px 0px;
+    z-index: 1;
     &.dia {
       background-color: rgb(237, 28, 9);
     }
@@ -46,4 +58,12 @@ export const Divisoria = styled.span`
   .aviao {
     transform: rotate(0.25turn);
   }
+`;
+
+export const TelaCarregando = styled.div`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

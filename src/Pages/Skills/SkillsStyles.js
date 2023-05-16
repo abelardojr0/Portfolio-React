@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import responsivo, { breakpoints } from "../../Responsivo";
 
 export const SkillsComponent = styled.section`
   height: 100%;
@@ -10,22 +11,81 @@ export const SkillsComponent = styled.section`
   padding: 0 20px;
   box-sizing: border-box;
 `;
+export const SkillsDivisoria = styled.div`
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+  ${responsivo(breakpoints.desktop)} {
+    max-width: 768px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 480px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    max-width: 300px;
+  }
+`;
 
+const movendo = keyframes`
+  0% {
+    transform: translate3d(0, -30px, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -30px, 0);
+  }
+`;
+export const SkillsImagemDetalhe = styled.img`
+  max-width: 480px;
+  animation: ${movendo} 5s infinite linear;
+  ${responsivo(breakpoints.desktop)} {
+    display: none;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    display: none;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    display: none;
+  }
+`;
 export const SkillsGrade = styled.ul`
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 20px;
+  ${responsivo(breakpoints.desktop)} {
+    gap: 30px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    gap: 20px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    gap: 10px;
+  }
   li {
     background-color: black;
-    width: 50px;
+    width: 60px;
     padding: 1rem;
     position: relative;
     border-radius: 10px 15px 15px 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    ${responsivo(breakpoints.desktop)} {
+      width: 80px;
+    }
+    ${responsivo(breakpoints.tablet)} {
+      width: 80px;
+    }
+    ${responsivo(breakpoints.mobile)} {
+      width: 40px;
+    }
     img {
       max-width: 100%;
     }

@@ -11,7 +11,7 @@ export const ToggleContainer = styled.div`
   border-radius: 35px;
   background-color: #0c2336;
   border: 4px solid #04121d;
-  z-index: 20;
+  z-index: 2;
   &.light {
     background-color: #95dff8;
     border: 4px solid #669fb1;

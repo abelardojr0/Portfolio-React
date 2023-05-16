@@ -41,6 +41,7 @@ const Input = ({
             onChange={atualizar}
             value={dados}
             className={modo}
+            autoComplete="off"
           />
           <LabelInput className={focus + " " + modo} htmlFor={htmlFor}>
             {texto}

@@ -1,11 +1,21 @@
 import styled from "styled-components";
+import responsivo, { breakpoints } from "../../Responsivo";
 
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 300px;
+  max-width: 500px;
   position: relative;
+  ${responsivo(breakpoints.desktop)} {
+    max-width: 768px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 480px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 300px;
+  }
 `;
 export const LabelInput = styled.label`
   color: #999;

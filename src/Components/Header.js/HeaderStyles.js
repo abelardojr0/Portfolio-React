@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import nave from "../../Image/adereços/navcat.png";
+import responsivo, { breakpoints } from "../../Responsivo";
 
 export const HeaderComponent = styled.nav`
   position: fixed;
@@ -14,29 +15,55 @@ export const HeaderComponent = styled.nav`
   color: #fff;
   z-index: 2;
   padding-bottom: 20px;
+  padding-top: 10px;
   &.dia {
     background-color: #95dff8;
   }
 `;
 export const HeaderLua = styled.img`
-  max-width: 60px;
+  max-width: 100px;
   position: absolute;
   top: 10px;
   right: 10px;
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 80px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    max-width: 60px;
+  }
 `;
 
 export const HeaderEstrelas = styled.img`
-  max-width: 60px;
+  max-width: 100px;
   position: absolute;
   top: 10px;
   left: 10px;
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 80px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    max-width: 60px;
+  }
 `;
 
 export const HeaderEstrelinhas = styled.img`
-  max-width: 150px;
+  display: none;
   position: absolute;
   top: -5px;
   left: 25%;
+  ${responsivo(breakpoints.desktop)} {
+    display: block;
+    max-width: 150px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    display: block;
+    max-width: 200px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    display: block;
+
+    max-width: 150px;
+  }
 `;
 
 export const HeaderLista = styled.ul`
@@ -45,15 +72,30 @@ export const HeaderLista = styled.ul`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 20px;
   position: relative;
+  gap: 80px;
+  ${responsivo(breakpoints.desktop)} {
+    gap: 60px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    gap: 40px;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    gap: 20px;
+  }
   li {
     a {
       text-decoration: none;
       color: #898582;
-      font-size: 0.8rem;
+      font-size: 1.2rem;
       font-weight: bold;
       cursor: pointer;
+      ${responsivo(breakpoints.tablet)} {
+        font-size: 1rem;
+      }
+      ${responsivo(breakpoints.tablet)} {
+        font-size: 0.8rem;
+      }
       &.ativo {
         color: white;
       }
@@ -68,8 +110,8 @@ export const HeaderLista = styled.ul`
 export const HeaderNave = styled.div`
   position: absolute;
   z-index: 2;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   transform: translate(-50%, -50%);
   top: calc(${({ style }) => style.top}px + 20px);
   left: ${({ style }) => style.left}px;
@@ -78,16 +120,21 @@ export const HeaderNave = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   transition: left 400ms ease;
+  ${responsivo(breakpoints.tablet)} {
+    width: 80px;
+    height: 80px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    width: 70px;
+    height: 70px;
+  }
 `;
 
 export const HeaderNaveLuz = styled.div`
   position: absolute;
-  /* left: -25%;
-  top: 45px; */
-  /* width: 160%; */
-  left: -10px;
-  top: 45px;
-  width: 140%;
+  left: -27px;
+  top: 50px;
+  width: 160%;
   height: 90px;
   background: linear-gradient(
     to bottom,
@@ -96,6 +143,60 @@ export const HeaderNaveLuz = styled.div`
   );
   clip-path: polygon(5% 100%, 35% 0px, 60% 0px, 95% 100%);
   pointer-events: none;
+  ${responsivo(breakpoints.tablet)} {
+    width: 150%;
+    left: -18px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    left: -10px;
+    width: 140%;
+  }
 `;
-
-//DIA
+export const HeaderLogo = styled.img`
+  max-width: 120px;
+  margin-right: 50px;
+  ${responsivo(breakpoints.mobile)} {
+    margin-right: 0px;
+  }
+`;
+export const HeaderOpcoesMobile = styled.a`
+  color: #898582;
+  text-decoration: none;
+  position: relative;
+  &.ativo_mobile {
+    color: white;
+    &::after,
+    &::before {
+      display: block;
+    }
+  }
+  &::before {
+    content: "";
+    display: none;
+    background-image: url(${nave});
+    background-position: center;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: -60px;
+    top: -20px;
+    transform: rotate(-90deg);
+  }
+  &::after {
+    content: "";
+    display: none;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.3) -50%,
+      rgba(255, 255, 255, 0) 90%
+    );
+    clip-path: polygon(100% 5%, 0% 35%, 0% 60%, 100% 95%);
+    pointer-events: none;
+    width: 120%;
+    height: 80px;
+    position: absolute;
+    left: -20px;
+    top: -28px;
+  }
+`;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import responsivo, { breakpoints } from "../../Responsivo";
 
 export const InicioComponent = styled.section`
   height: 100%;
@@ -10,18 +11,34 @@ export const InicioComponent = styled.section`
   flex-direction: column;
 `;
 export const InicioFoto = styled.img`
-  max-width: 300px;
+  max-width: 500px;
   border-radius: 50%;
-  margin-top: 100px;
+  margin-top: 0px;
   border: 4px solid white;
+  margin-bottom: 20px;
+  ${responsivo(breakpoints.tablet)} {
+    margin-top: 50px;
+    max-width: 450px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    margin-top: 100px;
+    max-width: 300px;
+  }
 `;
 
 export const InicioNome = styled.h1`
-  font-size: 2rem;
+  font-size: 3rem;
   margin-top: 10px;
   color: white;
+  margin-bottom: 20px;
   &.dia {
     color: black;
+  }
+  ${responsivo(breakpoints.tablet)} {
+    font-size: 2.5rem;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    font-size: 2rem;
   }
 `;
 
@@ -46,12 +63,19 @@ export const InicioFuncao = styled.h2`
       opacity: 0;
     }
   }
+  margin-bottom: 20px;
   margin-top: 10px;
-  font-size: 1.4rem;
+  font-size: 2.2rem;
   color: rgb(237, 218, 13);
   font-weight: bold;
   overflow: hidden;
   animation: pulsando 1500ms infinite ease-in-out;
+  ${responsivo(breakpoints.tablet)} {
+    font-size: 1.8rem;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    font-size: 1.4rem;
+  }
   &.dia {
     color: rgb(237, 28, 9);
   }
@@ -60,5 +84,18 @@ export const InicioFuncao = styled.h2`
     margin-left: 2px;
     opacity: 1;
     animation: pisca 0.7s infinite;
+  }
+`;
+export const InicioSociais = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  ${responsivo(breakpoints.tablet)} {
+    max-width: 450px;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    max-width: 300px;
   }
 `;

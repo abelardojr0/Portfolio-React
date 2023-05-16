@@ -6,12 +6,12 @@ import {
 } from "./NoiteStyles";
 import Header from "../../Components/Header.js/Header";
 import Inicio from "../Inicio/Inicio";
-import Toggle from "../../Components/Toggle/Toggle";
 import Sobre from "../Sobre/Sobre";
 import Portfolio from "../Portfolio/Portfolio";
 import Skills from "../Skills/Skills";
 import Contato from "../Contato/Contato";
 import Footer from "../Footer/Footer";
+import Resumo from "../Resumo/Resumo";
 
 const Noite = () => {
   React.useEffect(() => {
@@ -31,15 +31,16 @@ const Noite = () => {
     animaScroll();
     window.addEventListener("scroll", animaScroll);
   }, []);
+
   return (
     <>
       <NoiteComponent>
         <NoiteEstrelas />
         <NoiteEstrelasMenores />
         <Header />
-        <Inicio />]
-        <Toggle />
+        <Inicio />
         <Sobre />
+        <Resumo />
         <Portfolio />
         <Skills />
         <Contato />
