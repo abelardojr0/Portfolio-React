@@ -15,13 +15,13 @@ const Sobre = () => {
   const [modo, setModo] = React.useState();
 
   React.useEffect(() => {
-    Api.get("/imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[9][1]);
+          setDetalheMaior(response.data[0][1].replace("$", "?"));
         } else {
-          setDetalheMaior(response.data[8][1]);
+          setDetalheMaior(response.data[1][1].replace("$", "?"));
         }
       })
       .catch((error) => {
@@ -30,15 +30,15 @@ const Sobre = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/divisoria")
+    Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalhe(response.data[0][1]);
+          setDetalhe(response.data[0][1].replace("$", "?"));
           setDetalheNome("aviao");
           setModo("dia");
         } else {
-          setDetalhe(response.data[1][1]);
+          setDetalhe(response.data[1][1].replace("$", "?"));
           setDetalheNome("foguete");
           setModo("");
         }

@@ -30,15 +30,16 @@ const Contato = () => {
   const icone = "icone";
 
   React.useEffect(() => {
-    Api.get("/imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
+          console.log(response.data);
           setModo("dia");
-          setDetalheMaior(response.data[6][1]);
+          setDetalheMaior(response.data[12][1].replace("$", "?"));
         } else {
           setModo("");
-          setDetalheMaior(response.data[7][1]);
+          setDetalheMaior(response.data[13][1].replace("$", "?"));
         }
       })
       .catch((error) => {

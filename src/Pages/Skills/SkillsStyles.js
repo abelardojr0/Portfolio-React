@@ -129,7 +129,7 @@ export const SkillsGrade = styled.ul`
         box-shadow: 10px 10px 30px 5px #f7df1e;
       }
     }
-    &.react {
+    &.reactJS {
       &::before {
         background-color: #00ccff;
         box-shadow: 10px 10px 30px 5px #00ccff;
@@ -147,7 +147,7 @@ export const SkillsGrade = styled.ul`
         box-shadow: 10px 10px 30px 5px #a06940;
       }
     }
-    &.node {
+    &.nodeJS {
       &::before {
         background-color: #539e43;
         box-shadow: 10px 10px 30px 5px #539e43;
@@ -171,7 +171,7 @@ export const SkillsGrade = styled.ul`
         box-shadow: 10px 10px 30px 5px #f05033;
       }
     }
-    &.next {
+    &.nextJS {
       &::before {
         background-color: #89dad5;
         box-shadow: 10px 10px 30px 5px #89dad5;

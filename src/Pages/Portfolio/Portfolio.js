@@ -45,15 +45,15 @@ const Portfolio = () => {
   const [github, setGithub] = React.useState([]);
 
   React.useEffect(() => {
-    Api.get("/imagens/divisoria")
+    Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalhe(response.data[0][1]);
+          setDetalhe(response.data[0][1].replace("$", "?"));
           setDetalheNome("aviao");
           setModo("dia");
         } else {
-          setDetalhe(response.data[1][1]);
+          setDetalhe(response.data[1][1].replace("$", "?"));
           setDetalheNome("foguete");
           setModo("");
         }
@@ -65,19 +65,18 @@ const Portfolio = () => {
 
   React.useEffect(() => {
     const pageAtual = window.location.href;
-    Api.get("./imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
-        console.log(response.data);
         if (pageAtual.includes("dia")) {
           setDetalheNome("aviao");
           setModo("dia");
-          setDetalheMaior1(response.data[0][1]);
-          setDetalheMaior2(response.data[1][1]);
+          setDetalheMaior1(response.data[6][1].replace("$", "?"));
+          setDetalheMaior2(response.data[7][1].replace("$", "?"));
         } else {
           setDetalheNome("foguete");
           setModo("");
-          setDetalheMaior1(response.data[2][1]);
-          setDetalheMaior2(response.data[3][1]);
+          setDetalheMaior1(response.data[8][1].replace("$", "?"));
+          setDetalheMaior2(response.data[9][1].replace("$", "?"));
         }
       })
       .catch((error) => {
@@ -146,7 +145,7 @@ const Portfolio = () => {
             {projetos.map((projeto) => (
               <Carousel.Item key={projeto}>
                 <CardPortfolio
-                  imagem={projeto[1]}
+                  imagem={projeto[1].replace("$", "?")}
                   titulo={projeto[2]}
                   subtitulo={projeto[3]}
                   texto={projeto[4]}

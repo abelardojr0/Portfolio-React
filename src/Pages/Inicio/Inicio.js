@@ -26,13 +26,13 @@ const Inicio = () => {
   const icone = "icone";
 
   React.useEffect(() => {
-    Api.get("/imagens/perfil")
+    Api.get("/perfil")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setFoto(response.data[0][1]);
+          setFoto(response.data[0][1].replace("$", "?"));
         } else {
-          setFoto(response.data[1][1]);
+          setFoto(response.data[1][1].replace("$", "?"));
         }
         setTimeout(() => {
           setCarregando(false);
@@ -44,15 +44,15 @@ const Inicio = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/divisoria")
+    Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalhe(response.data[0][1]);
+          setDetalhe(response.data[0][1].replace("$", "?"));
           setDetalheNome("aviao");
           setModo("dia");
         } else {
-          setDetalhe(response.data[1][1]);
+          setDetalhe(response.data[1][1].replace("$", "?"));
           setDetalheNome("foguete");
           setModo("");
         }

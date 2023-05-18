@@ -24,12 +24,14 @@ export const HeaderLua = styled.img`
   max-width: 100px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 60px;
   ${responsivo(breakpoints.tablet)} {
     max-width: 80px;
+    right: 20px;
   }
   ${responsivo(breakpoints.mobile)} {
     max-width: 60px;
+    right: 10px;
   }
 `;
 
@@ -37,12 +39,14 @@ export const HeaderEstrelas = styled.img`
   max-width: 100px;
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 30px;
   ${responsivo(breakpoints.tablet)} {
     max-width: 80px;
+    left: 20px;
   }
   ${responsivo(breakpoints.mobile)} {
     max-width: 60px;
+    left: 10px;
   }
 `;
 

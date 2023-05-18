@@ -9,8 +9,8 @@ import { Divisoria, TituloGeral } from "../../GlobalStyles";
 import Api from "../../Api";
 const Skills = () => {
   const nomes = [
-    "react",
-    "next",
+    "reactJS",
+    "nextJS",
     "styled_components",
     "typescript",
     "js",
@@ -18,12 +18,12 @@ const Skills = () => {
     "css",
     "sass",
     "bootstrap",
-    "node",
-    "flask",
+    "nodeJS",
     "python",
+    "flask",
     "postgreSQL",
-    "mysql",
     "mongoDB",
+    "mysql",
     "git",
   ];
 
@@ -34,25 +34,25 @@ const Skills = () => {
   const [tecs, setTecs] = React.useState();
 
   React.useEffect(() => {
-    Api.get("/imagens/tecnologias")
+    Api.get("/tec")
       .then((response) => {
         setTecs({
-          react: response.data[6][1],
-          js: response.data[14][1],
-          html: response.data[13][1],
-          css: response.data[10][1],
-          sass: response.data[7][1],
-          git: response.data[12][1],
-          node: response.data[3][1],
-          postgreSQL: response.data[4][1],
-          mysql: response.data[1][1],
-          styled_components: response.data[8][1],
-          typescript: response.data[9][1],
-          flask: response.data[11][1],
-          python: response.data[5][1],
-          bootstrap: response.data[15][1],
-          mongoDB: response.data[0][1],
-          next: response.data[2][1],
+          reactJS: response.data[0][1].replace("$", "?"),
+          nextJS: response.data[1][1].replace("$", "?"),
+          typescript: response.data[2][1].replace("$", "?"),
+          styled_components: response.data[3][1].replace("$", "?"),
+          js: response.data[4][1].replace("$", "?"),
+          html: response.data[5][1].replace("$", "?"),
+          css: response.data[6][1].replace("$", "?"),
+          sass: response.data[7][1].replace("$", "?"),
+          bootstrap: response.data[8][1].replace("$", "?"),
+          nodeJS: response.data[9][1].replace("$", "?"),
+          python: response.data[10][1].replace("$", "?"),
+          flask: response.data[11][1].replace("$", "?"),
+          postgreSQL: response.data[12][1].replace("$", "?"),
+          mongoDB: response.data[13][1].replace("$", "?"),
+          mysql: response.data[14][1].replace("$", "?"),
+          git: response.data[15][1].replace("$", "?"),
         });
       })
       .catch((error) => {
@@ -61,13 +61,13 @@ const Skills = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[4][1]);
+          setDetalheMaior(response.data[10][1].replace("$", "?"));
         } else {
-          setDetalheMaior(response.data[5][1]);
+          setDetalheMaior(response.data[11][1].replace("$", "?"));
         }
       })
       .catch((error) => {
@@ -76,15 +76,15 @@ const Skills = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/divisoria")
+    Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalhe(response.data[0][1]);
+          setDetalhe(response.data[0][1].replace("$", "?"));
           setDetalheNome("aviao");
           setModo("dia");
         } else {
-          setDetalhe(response.data[1][1]);
+          setDetalhe(response.data[1][1].replace("$", "?"));
           setDetalheNome("foguete");
           setModo("");
         }

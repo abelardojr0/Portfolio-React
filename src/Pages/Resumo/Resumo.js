@@ -38,15 +38,15 @@ const Resumo = () => {
   const [detalheMaior2, setDetalheMaior2] = React.useState();
 
   React.useEffect(() => {
-    Api.get("/imagens/divisoria")
+    Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalhe(response.data[0][1]);
+          setDetalhe(response.data[0][1].replace("$", "?"));
           setDetalheNome("aviao");
           setModo("dia");
         } else {
-          setDetalhe(response.data[1][1]);
+          setDetalhe(response.data[1][1].replace("$", "?"));
           setDetalheNome("foguete");
           setModo("");
         }
@@ -57,7 +57,7 @@ const Resumo = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/informacoes/experiencia")
+    Api.get("/experiencia")
       .then((response) => {
         setExperiencias(response.data);
       })
@@ -67,7 +67,7 @@ const Resumo = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/informacoes/curso")
+    Api.get("/curso")
       .then((response) => {
         setCursos(response.data);
       })
@@ -77,13 +77,13 @@ const Resumo = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[13][1]);
+          setDetalheMaior(response.data[2][1].replace("$", "?"));
         } else {
-          setDetalheMaior(response.data[12][1]);
+          setDetalheMaior(response.data[3][1].replace("$", "?"));
         }
       })
       .catch((error) => {
@@ -92,14 +92,13 @@ const Resumo = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/imagens/adereco-desktop")
+    Api.get("/corpo")
       .then((response) => {
-        console.log(response.data);
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          setDetalheMaior2(response.data[14][1]);
+          setDetalheMaior2(response.data[4][1].replace("$", "?"));
         } else {
-          setDetalheMaior2(response.data[11][1]);
+          setDetalheMaior2(response.data[5][1].replace("$", "?"));
         }
       })
       .catch((error) => {
@@ -135,7 +134,7 @@ const Resumo = () => {
           >
             {experiencias &&
               experiencias.map((experiencia) => (
-                <Carousel.Item>
+                <Carousel.Item key={experiencia[1]}>
                   <CardExperiencia
                     titulo1={experiencia[1]}
                     subtitulo={experiencia[2]}
@@ -161,7 +160,7 @@ const Resumo = () => {
           >
             {cursos &&
               cursos.map((experiencia) => (
-                <Carousel.Item>
+                <Carousel.Item key={experiencia[1]}>
                   <CardExperiencia
                     titulo1={experiencia[1]}
                     subtitulo={experiencia[2]}

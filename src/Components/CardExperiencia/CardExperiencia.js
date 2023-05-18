@@ -18,14 +18,14 @@ const CardExperiencia = ({ titulo1, subtitulo, imagem, titulo2, texto }) => {
   React.useEffect(() => {
     const pageAtual = window.location.href;
     if (pageAtual.includes("dia")) {
-      Api.get("/imagens/detalhes")
+      Api.get("/detalhes")
         .then((response) => {
           setDetalhes({
-            1: response.data[1][1],
-            2: response.data[3][1],
-            3: response.data[5][1],
-            4: response.data[7][1],
-            5: response.data[9][1],
+            1: response.data[0][1].replace("$", "?"),
+            2: response.data[1][1].replace("$", "?"),
+            3: response.data[2][1].replace("$", "?"),
+            4: response.data[3][1].replace("$", "?"),
+            5: response.data[4][1].replace("$", "?"),
           });
         })
         .catch((error) => {
@@ -33,14 +33,14 @@ const CardExperiencia = ({ titulo1, subtitulo, imagem, titulo2, texto }) => {
         });
       setModo("dia");
     } else {
-      Api.get("/imagens/detalhes")
+      Api.get("/detalhes")
         .then((response) => {
           setDetalhes({
-            1: response.data[0][1],
-            2: response.data[2][1],
-            3: response.data[4][1],
-            4: response.data[6][1],
-            5: response.data[8][1],
+            1: response.data[5][1].replace("$", "?"),
+            2: response.data[6][1].replace("$", "?"),
+            3: response.data[7][1].replace("$", "?"),
+            4: response.data[8][1].replace("$", "?"),
+            5: response.data[9][1].replace("$", "?"),
           });
         })
         .catch((error) => {

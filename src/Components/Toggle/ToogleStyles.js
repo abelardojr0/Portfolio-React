@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Moon from "../../Image/adereços/lua.png";
 import Sun from "../../Image/adereços/sol.png";
+import responsivo, { breakpoints } from "../../Responsivo";
 
 export const ToggleContainer = styled.div`
   position: fixed;
   top: 150px;
-  right: 30px;
+  right: 80px;
   width: 104px;
   height: 62px;
   border-radius: 35px;
@@ -15,6 +16,9 @@ export const ToggleContainer = styled.div`
   &.light {
     background-color: #95dff8;
     border: 4px solid #669fb1;
+  }
+  ${responsivo(breakpoints.mobile)} {
+    right: 20px;
   }
 `;
 
