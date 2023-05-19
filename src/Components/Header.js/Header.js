@@ -55,7 +55,7 @@ const Header = () => {
     const firstLiRect = firstLi.getBoundingClientRect();
     setNavePos({
       top: firstLiRect.top - 50,
-      left: firstLiRect.left + firstLiRect.width / 2 - 5,
+      left: firstLiRect.left + firstLiRect.width / 2 ,
     });
     setAtual(localStorage.getItem("header"));
     const selecionado = document.querySelector(

@@ -38,7 +38,7 @@ const Dia = () => {
   }, []);
 
   return (
-    <DiaComponent className="animaEsquerda">
+    <DiaComponent>
       <DiaComponentWrap>
         <Cloudx1>
           <Cloud />

@@ -33,7 +33,7 @@ const Noite = () => {
   }, []);
   return (
     <>
-      <NoiteComponent className="animaEsquerda">
+      <NoiteComponent>
         <NoiteEstrelas />
         <NoiteEstrelasMenores />
         <Header />

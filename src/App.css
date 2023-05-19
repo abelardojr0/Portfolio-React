@@ -161,16 +161,3 @@ html {
 .hamburguer-icon {
   margin-right: 10px;
 }
-
-.animaEsquerda {
-  opacity: 0;
-  transform: translateX(-20px);
-  animation: animaEsquerda 0.5s forwards;
-}
-
-@keyframes animaEsquerda {
-  to {
-    opacity: initial;
-    transform: initial;
-  }
-}

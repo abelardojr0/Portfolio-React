@@ -3,6 +3,7 @@ import responsivo, { breakpoints } from "../../Responsivo";
 
 const nave =
   "https://drive.google.com/uc?export=view&id=1qZwLGbsm2Ut65m6S-vz5sx-_UHeQ4YGc";
+
 export const HeaderComponent = styled.nav`
   position: fixed;
   top: 0;
@@ -21,6 +22,7 @@ export const HeaderComponent = styled.nav`
     background-color: #95dff8;
   }
 `;
+
 export const HeaderLua = styled.img`
   max-width: 100px;
   position: absolute;
