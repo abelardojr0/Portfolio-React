@@ -1,7 +1,7 @@
 import React from "react";
 import { bubble as Menu } from "react-burger-menu";
 import "./styles.css";
-import logo from "../../Image/adereços/navcat.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -13,6 +13,8 @@ import {
 import { HeaderLogo, HeaderOpcoesMobile } from "./HeaderStyles";
 
 const MenuHamburguer = () => {
+  const nave =
+    "https://drive.google.com/uc?export=view&id=1qZwLGbsm2Ut65m6S-vz5sx-_UHeQ4YGc";
   // const [isOpen, setIsOpen] = React.useState(false);
 
   // React.useEffect(() => {
@@ -55,7 +57,7 @@ const MenuHamburguer = () => {
   };
   return (
     <Menu onStateChange={handleMenuStateChange} zIndex={10}>
-      <HeaderLogo src={logo} alt="logo" />
+      <HeaderLogo src={nave} alt="logo" />
 
       <HeaderOpcoesMobile
         className="menu-nav ativo_header"

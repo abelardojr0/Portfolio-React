@@ -31,7 +31,6 @@ const Noite = () => {
     animaScroll();
     window.addEventListener("scroll", animaScroll);
   }, []);
-
   return (
     <>
       <NoiteComponent>

@@ -86,9 +86,6 @@ export const CardExperienciaTituloDireita = styled.h2`
   &.dia {
     color: black;
   }
-  /* ${responsivo(breakpoints.mobile)} {
-    text-align: center;
-  } */
   &::after {
     content: "";
     display: block;
@@ -100,9 +97,6 @@ export const CardExperienciaTituloDireita = styled.h2`
     &.dia {
       background-color: #535353;
     }
-    /* ${responsivo(breakpoints.mobile)} {
-      width: 100px;
-    } */
   }
 `;
 

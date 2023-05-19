@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import nave from "../../Image/adereços/navcat.png";
 import responsivo, { breakpoints } from "../../Responsivo";
 
+const nave =
+  "https://drive.google.com/uc?export=view&id=1qZwLGbsm2Ut65m6S-vz5sx-_UHeQ4YGc";
 export const HeaderComponent = styled.nav`
   position: fixed;
   top: 0;
@@ -31,7 +32,7 @@ export const HeaderLua = styled.img`
   }
   ${responsivo(breakpoints.mobile)} {
     max-width: 60px;
-    right: 10px;
+    right: 30px;
   }
 `;
 

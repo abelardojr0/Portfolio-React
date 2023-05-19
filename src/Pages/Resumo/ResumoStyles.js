@@ -71,3 +71,21 @@ export const ResumoCarousel = styled.div`
     max-width: 300px;
   }
 `;
+
+export const ResumoBotaoCurriculo = styled.a`
+  background-color: rgb(237, 218, 13);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+  &.dia {
+    background-color: rgb(237, 28, 9);
+    color: white;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+`;

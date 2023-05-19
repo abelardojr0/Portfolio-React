@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ResumoBotaoCurriculo,
   ResumoCarousel,
   ResumoComponent,
   ResumoImagemDetalhe,
@@ -120,6 +121,13 @@ const Resumo = () => {
           Estes são os principais pontos de ganho de experiência e títulos que
           obtive durante minha jornada.
         </ResumoTexto>
+        <ResumoBotaoCurriculo
+          className={modo}
+          target="_blank"
+          href="https://drive.google.com/file/d/1q5bwNXDSGSiV0UFlgFH8_lEb7UWIOR-8/view"
+        >
+          Currículo
+        </ResumoBotaoCurriculo>
         <ResumoSubtitulo className={modo}>Experiências</ResumoSubtitulo>
         <ResumoImagemDetalhe src={detalheMaior} alt="detalheMaior" />
         <ResumoCarousel>

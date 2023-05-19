@@ -8,45 +8,54 @@ import {
   HeaderNave,
   HeaderNaveLuz,
 } from "./HeaderStyles";
-import sol from "../../Image/adereços/sol.png";
-import nuvem1 from "../../Image/adereços/nuvem1.png";
-import nuvem2 from "../../Image/adereços/nuvem2.png";
-import lua from "../../Image/adereços/lua.png";
-import estrelas from "../../Image/adereços/estrelas.png";
-import estrelinhas from "../../Image/adereços/estrelinhas.png";
 import MenuHamburguer from "./MenuHamburguer";
 import Toggle from "../Toggle/Toggle";
+import Api from "../../Api";
 const Header = () => {
-  const [navePos, setNavePos] = React.useState({ top: 0, left: 0 });
+  const [navePos, setNavePos] = React.useState({
+    top: 0,
+    left: 0,
+  });
   const [modo, setModo] = React.useState();
   const [astro, setAstro] = React.useState();
   const [detalhe1, setDetalhe1] = React.useState();
   const [detalhe2, setDetalhe2] = React.useState();
   const [atual, setAtual] = React.useState();
   const firstLiRef = React.useRef(null);
+  const [menuMobile, setMenuMobile] = React.useState(false);
+  const [mostrarMenu, setMostrarMenu] = React.useState(true);
 
   React.useMemo(() => {
     localStorage.setItem("header", "#inicio");
   }, []);
 
   React.useEffect(() => {
-    const pageAtual = window.location.href;
-    if (pageAtual.includes("dia")) {
-      setModo("dia");
-      setAstro(sol);
-      setDetalhe1(nuvem1);
-      setDetalhe2(nuvem2);
-    } else {
-      setModo("");
-      setAstro(lua);
-      setDetalhe1(estrelas);
-      setDetalhe2(estrelinhas);
-    }
+    Api.get("/header")
+      .then((response) => {
+        const pageAtual = window.location.href;
+        if (pageAtual.includes("dia")) {
+          setModo("dia");
+          setAstro(response.data[1][1].replace("$", "?"));
+          setDetalhe1(response.data[3][1].replace("$", "?"));
+          setDetalhe2(response.data[4][1].replace("$", "?"));
+        } else {
+          setModo("");
+          setAstro(response.data[2][1].replace("$", "?"));
+          setDetalhe1(response.data[5][1].replace("$", "?"));
+          setDetalhe2(response.data[6][1].replace("$", "?"));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  React.useEffect(() => {
     const firstLi = document.querySelector("li");
     const firstLiRect = firstLi.getBoundingClientRect();
     setNavePos({
       top: firstLiRect.top - 50,
-      left: firstLiRect.left + firstLiRect.width / 2,
+      left: firstLiRect.left + firstLiRect.width / 2 - 5,
     });
     setAtual(localStorage.getItem("header"));
     const selecionado = document.querySelector(
@@ -88,7 +97,6 @@ const Header = () => {
     });
   };
 
-  const [mostrarMenu, setMostrarMenu] = React.useState(true);
   React.useEffect(() => {
     let ultimaPosicao = 0;
     function scrollando() {
@@ -102,7 +110,6 @@ const Header = () => {
     }
     document.addEventListener("scroll", scrollando);
   }, []);
-  const [menuMobile, setMenuMobile] = React.useState(false);
 
   React.useEffect(() => {
     if (window.innerWidth < 768) {

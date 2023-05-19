@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import Moon from "../../Image/adereços/lua.png";
-import Sun from "../../Image/adereços/sol.png";
 import responsivo, { breakpoints } from "../../Responsivo";
 
+const Moon =
+  "https://drive.google.com/uc?export=view&id=1WKsjlCsqxTykFu2ckK-xfXVS4rE4cjV_";
+const Sun =
+  "https://drive.google.com/uc?export=view&id=1I9jY6iGHj_U6kQTjfRYTtUvkT-h0thdE";
 export const ToggleContainer = styled.div`
   position: fixed;
   top: 150px;
