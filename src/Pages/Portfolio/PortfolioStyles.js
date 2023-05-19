@@ -22,7 +22,7 @@ export const PortfolioCarousel = styled.div`
     max-width: 480px;
   }
   ${responsivo(breakpoints.mobile)} {
-    max-width: 350px;
+    max-width: 300px;
   }
 `;
 const pulsando = keyframes`

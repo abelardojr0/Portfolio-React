@@ -58,6 +58,9 @@ export const CardExperienciaCentro = styled.div`
   img {
     max-width: 60px;
     z-index: 3;
+    ${responsivo(breakpoints.mobile)} {
+      max-width: 40px;
+    }
   }
   &::after {
     content: "";
@@ -71,7 +74,7 @@ export const CardExperienciaCentro = styled.div`
       width: 300px;
       height: 2px;
       left: 0;
-      top: 35px;
+      top: 20px;
     }
   }
 `;

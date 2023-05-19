@@ -78,33 +78,37 @@ const Resumo = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/corpo")
-      .then((response) => {
-        const pageAtual = window.location.href;
-        if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[2][1].replace("$", "?"));
-        } else {
-          setDetalheMaior(response.data[3][1].replace("$", "?"));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.innerWidth >= 1000) {
+      Api.get("/corpo")
+        .then((response) => {
+          const pageAtual = window.location.href;
+          if (pageAtual.includes("dia")) {
+            setDetalheMaior(response.data[2][1].replace("$", "?"));
+          } else {
+            setDetalheMaior(response.data[3][1].replace("$", "?"));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   React.useEffect(() => {
-    Api.get("/corpo")
-      .then((response) => {
-        const pageAtual = window.location.href;
-        if (pageAtual.includes("dia")) {
-          setDetalheMaior2(response.data[4][1].replace("$", "?"));
-        } else {
-          setDetalheMaior2(response.data[5][1].replace("$", "?"));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.innerWidth >= 1000) {
+      Api.get("/corpo")
+        .then((response) => {
+          const pageAtual = window.location.href;
+          if (pageAtual.includes("dia")) {
+            setDetalheMaior2(response.data[4][1].replace("$", "?"));
+          } else {
+            setDetalheMaior2(response.data[5][1].replace("$", "?"));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   return (

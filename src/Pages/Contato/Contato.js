@@ -34,7 +34,6 @@ const Contato = () => {
       .then((response) => {
         const pageAtual = window.location.href;
         if (pageAtual.includes("dia")) {
-          console.log(response.data);
           setModo("dia");
           setDetalheMaior(response.data[12][1].replace("$", "?"));
         } else {

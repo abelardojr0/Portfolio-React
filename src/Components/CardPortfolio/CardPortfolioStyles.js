@@ -15,7 +15,7 @@ export const CardComponent = styled.div`
     max-width: 480px;
   }
   ${responsivo(breakpoints.mobile)} {
-    max-width: 350px;
+    max-width: 300px;
   }
 `;
 export const CardImagem = styled.img`

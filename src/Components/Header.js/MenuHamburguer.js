@@ -24,15 +24,15 @@ const MenuHamburguer = () => {
   //   }
   // }, [atual]);
 
-  React.useEffect(() => {
-    const closeMenu = () => {
-      // setIsOpen(false);
-    };
-    window.addEventListener("resize", closeMenu);
-    return () => {
-      window.removeEventListener("resize", closeMenu);
-    };
-  }, []);
+  // React.useEffect(() => {
+  //   const closeMenu = () => {
+  //     // setIsOpen(false);
+  //   };
+  //   window.addEventListener("resize", closeMenu);
+  //   return () => {
+  //     window.removeEventListener("resize", closeMenu);
+  //   };
+  // }, []);
 
   const handleLiClick = (e) => {
     const itens = document.querySelectorAll(".menu-nav");
@@ -49,7 +49,6 @@ const MenuHamburguer = () => {
     if (state.isOpen) {
       const atual = localStorage.getItem("header_mobile");
       const selecionado = document.querySelector(`[href="${atual}"]`);
-      console.log("selecionado" + selecionado);
       if (selecionado) {
         selecionado.classList.add("ativo_mobile");
       }
@@ -64,11 +63,7 @@ const MenuHamburguer = () => {
         onClick={handleLiClick}
         href="#inicio"
       >
-        <FontAwesomeIcon
-          className="hamburguer-icon"
-          size="1.5x"
-          icon={faHome}
-        />
+        <FontAwesomeIcon className="hamburguer-icon" size="1x" icon={faHome} />
         Início
       </HeaderOpcoesMobile>
       <HeaderOpcoesMobile
@@ -78,7 +73,7 @@ const MenuHamburguer = () => {
       >
         <FontAwesomeIcon
           className="hamburguer-icon"
-          size="1.5x"
+          size="1x"
           icon={faAddressCard}
         />
         Sobre
@@ -91,7 +86,7 @@ const MenuHamburguer = () => {
         <FontAwesomeIcon
           className="hamburguer-icon"
           s
-          size="1.5x"
+          size="1x"
           icon={faFileSignature}
         />
         Resumo
@@ -104,7 +99,7 @@ const MenuHamburguer = () => {
         <FontAwesomeIcon
           className="hamburguer-icon"
           s
-          size="1.5x"
+          size="1x"
           icon={faIdCardClip}
         />
         Portfólio
@@ -116,8 +111,7 @@ const MenuHamburguer = () => {
       >
         <FontAwesomeIcon
           className="hamburguer-icon"
-          s
-          size="1.5x"
+          size="1x"
           icon={faAddressBook}
         />
         Contato

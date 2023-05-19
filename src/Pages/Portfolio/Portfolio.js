@@ -64,24 +64,22 @@ const Portfolio = () => {
   }, []);
 
   React.useEffect(() => {
-    const pageAtual = window.location.href;
-    Api.get("/corpo")
-      .then((response) => {
-        if (pageAtual.includes("dia")) {
-          setDetalheNome("aviao");
-          setModo("dia");
-          setDetalheMaior1(response.data[6][1].replace("$", "?"));
-          setDetalheMaior2(response.data[7][1].replace("$", "?"));
-        } else {
-          setDetalheNome("foguete");
-          setModo("");
-          setDetalheMaior1(response.data[8][1].replace("$", "?"));
-          setDetalheMaior2(response.data[9][1].replace("$", "?"));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.innerWidth >= 1000) {
+      const pageAtual = window.location.href;
+      Api.get("/corpo")
+        .then((response) => {
+          if (pageAtual.includes("dia")) {
+            setDetalheMaior1(response.data[6][1].replace("$", "?"));
+            setDetalheMaior2(response.data[7][1].replace("$", "?"));
+          } else {
+            setDetalheMaior1(response.data[8][1].replace("$", "?"));
+            setDetalheMaior2(response.data[9][1].replace("$", "?"));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   const abrirModal = (

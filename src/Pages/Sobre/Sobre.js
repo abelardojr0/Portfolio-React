@@ -15,18 +15,20 @@ const Sobre = () => {
   const [modo, setModo] = React.useState();
 
   React.useEffect(() => {
-    Api.get("/corpo")
-      .then((response) => {
-        const pageAtual = window.location.href;
-        if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[0][1].replace("$", "?"));
-        } else {
-          setDetalheMaior(response.data[1][1].replace("$", "?"));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (window.innerWidth >= 1000) {
+      Api.get("/corpo")
+        .then((response) => {
+          const pageAtual = window.location.href;
+          if (pageAtual.includes("dia")) {
+            setDetalheMaior(response.data[0][1].replace("$", "?"));
+          } else {
+            setDetalheMaior(response.data[1][1].replace("$", "?"));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   React.useEffect(() => {

@@ -61,21 +61,6 @@ const Skills = () => {
   }, []);
 
   React.useEffect(() => {
-    Api.get("/corpo")
-      .then((response) => {
-        const pageAtual = window.location.href;
-        if (pageAtual.includes("dia")) {
-          setDetalheMaior(response.data[10][1].replace("$", "?"));
-        } else {
-          setDetalheMaior(response.data[11][1].replace("$", "?"));
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  React.useEffect(() => {
     Api.get("/divisoria")
       .then((response) => {
         const pageAtual = window.location.href;
@@ -93,6 +78,23 @@ const Skills = () => {
         console.log(error);
       });
   }, []);
+
+  React.useEffect(() => {
+    if (window.innerWidth >= 1000) {
+      Api.get("/corpo")
+        .then((response) => {
+          const pageAtual = window.location.href;
+          if (pageAtual.includes("dia")) {
+            setDetalheMaior(response.data[10][1].replace("$", "?"));
+          } else {
+            setDetalheMaior(response.data[11][1].replace("$", "?"));
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, []);
   return (
     <>
       <SkillsComponent id="skills" className="sessao">
@@ -109,7 +111,6 @@ const Skills = () => {
           <SkillsImagemDetalhe src={detalheMaior} alt="imagemDetalheGrande" />
         </SkillsDivisoria>
       </SkillsComponent>
-      )
       <Divisoria>
         <hr className={modo} />
         <img className={detalheNome} src={detalhe} alt="imagem" />
